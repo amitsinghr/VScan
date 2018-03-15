@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
+    <AssemblyName>VirusTotal.NET</AssemblyName>
+    <PackageId>VirusTotal.NET</PackageId>
+    <PackageProjectUrl>https://github.com/Genbox/VirusTotal.NET/</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Genbox/VirusTotal.NET/</RepositoryUrl>
+    <RootNamespace>VirusTotalNET</RootNamespace>
+    <Description>A full implementation of the VirusTotal 2.0 API</Description>
+    <Authors>Ian Qvist</Authors>
+    <PackageTags>VirusTotal</PackageTags>
+    <PackageLicenseUrl>https://github.com/Genbox/VirusTotal.Net/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <Version>1.6.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+</Project>
