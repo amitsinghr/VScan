@@ -1,0 +1,37 @@
+﻿@model  AvScanLibrary.Models.ScanOutputs
+@{
+    ViewBag.Title = "Scan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-wrapper">
+    <h2>Scan Results</h2>
+    <hr />
+    @foreach (var result in Model.ScanResults)
+    {
+     <div class="well-custom">
+        <h5 class="text-primary"><strong>@result.ServiceName Result</strong></h5>
+        <!-- <p>Virus Found:</p><h4 class="text-primary"><strong>@result.Result</strong></h4>
+    <p>Details:</p>
+    <p><strong>@Html.Encode(result.Message)</strong></p>-->
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" class="col-lg-2"></th>
+                    <th scope="col" class="col-lg-4">Virus Found</th>
+                    <th scope="col" class="col-lg-6">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="@(result.Result==true?"/Content/images/warning.svg":"/Content/images/safe.svg")" height="20px"/>
+                        
+                    </td>
+                    <td data-label="Virus Found:" style="color:@(result.Result==true?"#ef5350":"#1f3040");">@result.Result</td>
+                    <td data-label="Details:">@Html.Encode(result.Message)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    }

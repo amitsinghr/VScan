@@ -30,7 +30,7 @@ h2 {
 }
 .main-wrapper {
     min-height: 75vh;
-    padding: 30px;
+    padding: 25px;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -39,7 +39,7 @@ h2 {
     overflow: hidden;
 }
 .well-custom {
-    padding: 25px;
+    padding: 15px 20px;
     margin-bottom: 20px;
     background-color: #f4f9ff;
     border: 2px solid #bedfff;
@@ -47,6 +47,7 @@ h2 {
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
 }
+
 hr {
     height: 1px;
     background-color: #bedfff;
@@ -62,7 +63,8 @@ hr {
     overflow: hidden;
 }
 .box-view {
-    padding: 30px 0;
+    padding: 30px 5px;
+    margin-top: 0;
 }
 .btn-icon-sm {
     width: 30px;
@@ -72,10 +74,19 @@ hr {
 .fileinput-upload-button {
     display: none;
 }
+.text-blue {
+    color: #0094ff;
+}
+.text-purple {
+    color: #363795;
+}
 /*-------------------------bootstrap overwrittent classes----------------------*/
 .navbar-inverse {
-    background-color: #243b7f;
-    border-color: #243b7f;
+    /*background-color: #243b7f;*/
+    background: #005C97; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #363795, #005C97); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #363795, #005C97); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
 }
     .navbar-inverse .navbar-brand {
         color: #419fff;
@@ -110,6 +121,79 @@ hr {
         background-color: #065da6;
         border-color: #065da6;
     }
+    p.label-cust {
+        font-size: 12px;
+        color: #226389;
+        margin: 0;
+    }
+    p.label-data {
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+/*-------------------responsive table UI--------------------*/
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+    }
+    table tr {
+        background: #fff;
+        padding: 10px;
+        border:1px solid #bedfff;
+    }
+    .table > thead > tr > th {
+        border-bottom: 2px solid #bedfff;
+    }
+    table th,
+    table td {
+        padding: 10px 15px;
+    }
+    table th {
+        color: #99abb4;
+        font-size: 12px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+    }
+
+@media screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    table tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+    table td {
+        display: block;
+        font-size: 12px;
+        text-align: right;
+        padding: 5px;
+    }
+    .table > tbody > tr > td {
+        border: none;
+    }
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: #1f3040;
+        text-transform: uppercase;
+        padding-right: 3px;
+    }
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
 /*-------------------------media query----------------------*/
 @media only screen and (max-width: 600px) {
     .col-xs-12 {
@@ -124,5 +208,9 @@ hr {
     }
     .well-small {
         padding: 12px;
+    }
+    .box-view {
+        padding: 30px 5px;
+        margin-top: 10px;
     }
 }

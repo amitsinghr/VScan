@@ -4,97 +4,72 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>ScanFileLog</h4>
+<div class="main-wrapper">
+    <h2>Details</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ScanId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ScanId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FileName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FileName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Scanner)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Scanner)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FileType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FileType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Filesize)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Filesize) bytes
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FinishTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FinishTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
-
-    </dl>
-
-    <table class="table">
-        <tr>
-            <th>Scan Id</th>
-            <th>Result</th>
-            <th>Message</th>
-        </tr>
-
-
-        @foreach (var item in Model.ScanResults)
-    {
-        <tr>
-            <td>@item.ScanId</td>
-            <td>@item.VirusFound</td>
-            <td>@item.Result</td>
-        </tr>        
-}
-    </table>
+    <div class="row">
+        <div class="col-xs-6">
+            <h4 style="margin:0;">ScanFileLog</h4>
+        </div>
+        <div class="col-xs-6 text-right">
+            <p>
+                @Html.ActionLink("Back to List", "Log")
+            </p>
+        </div>
     </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <div class="well-custom">
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.ScanId)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.ScanId)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.FileName)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.FileName)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.Scanner)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.Scanner)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.FileType)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.FileType)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.Filesize)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.Filesize)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.StartTime)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.StartTime)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.FinishTime)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.FinishTime)</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="label-cust">@Html.DisplayNameFor(model => model.Message)</p>
+                <p class="label-data">@Html.DisplayFor(model => model.Message)</p>
+            </div>
+        </div>
+    </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Scan Id</th>
+                        <th scope="col">Result</th>
+                        <th scope="col">Message</th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model.ScanResults)
+                {
+                    <tr>
+                        <td data-label="Scan ID:">@item.ScanId</td>
+                        <td data-label="Result:">@item.VirusFound</td>
+                        <td data-label="Message:">@item.Result</td>
+                    </tr>
+                }
+            </table>
+        
+    </div>

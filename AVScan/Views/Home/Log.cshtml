@@ -1,74 +1,69 @@
 ﻿@model IEnumerable<AvScanLibrary.Models.ScanFileLog>
- 
-
-
 @{
     ViewBag.Title = "Log";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Log</h2>
-
- 
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Scanner</th>
-        <th>FileName</th>
-        <th>Type</th>
-        <th>Size (bytes)</th>
-        <th>Start Time</th>
-        <th>Finish Time</th>
-        <th>Status</th>
-        <th>Message</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @item.ScanId
-        </td>
-        <td>
-            @item.Scanner
-        </td>
-        <td>
-            @item.FileName
-        </td>
-        <td>
-            @item.FileType
-        </td>
-        <td>
-            @item.Filesize
-        </td>
-        <td>
-            @item.StartTime
-        </td>
-
-        <td>
-            @item.FinishTime
-        </td>
-
-        <td>
-            @item.Status
-        </td>
-
-        <td>
-            @item.Message
-        </td>
-
-        <td>
-
-            @Html.ActionLink("Results", "Details", new { id = item.ScanId })
-
-            @if (item.Scanner.ToLower() == "virus total")
+<div class="main-wrapper">
+        <h2>Log</h2>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Scanner</th>
+                    <th scope="col">FileName</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Size (bytes)</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">Finish Time</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Message</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
             {
-                @Html.Display(" | ")
-                @Html.ActionLink("Check Report", "CheckReport", new { scanid = item.ScanId})
+                <tr>
+                    <td data-label="ID:">
+                        @item.ScanId
+                    </td>
+                    <td data-label="Scanner:">
+                        @item.Scanner
+                    </td>
+                    <td data-label="Filename:">
+                        @item.FileName
+                    </td>
+                    <td data-label="Type:">
+                        @item.FileType
+                    </td>
+                    <td data-label="Size(bytes):">
+                        @item.Filesize
+                    </td>
+                    <td data-label="Start Time:">
+                        @item.StartTime
+                    </td>
+                    <td data-label="Finish Time:">
+                        @item.FinishTime
+                    </td>
+                    <td data-label="Status:">
+                        @item.Status
+                    </td>
+                    <td data-label="Message:">
+                        @item.Message
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Results", "Details", new { id = item.ScanId }, new { @class = "text-blue" })
+                        <br />
+                        @if (item.Scanner.ToLower() == "virus total")
+                        {
+                            @Html.Display(" | ")
+                            @Html.ActionLink("Check Report", "CheckReport", new { scanid = item.ScanId }, new { @class = "text-purple" })
+                        }
+
+                    </td>
+                </tr>
             }
 
-        </td>
-    </tr>
-    }
-
-</table>
+        </table>
+    </div>

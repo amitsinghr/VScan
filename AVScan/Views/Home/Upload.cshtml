@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Upload File";
+}
+<div class="main-wrapper">
+    <h2>File Upload</h2>
+    <hr />
+    <div class="well-custom col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
+        @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <div class="well-small">
+            <h4 class="text-info">Add Files from your Computer</h4>
+                <!-- @Html.TextBox("file", "", new { type = "file", @class = "custom-file-input" }) -->
+                <!-- below file input added for multiple file upload-->
+                @Html.TextBox("file", "", new { type = "file", multiple = "multiple", @class = "file" })
+        </div>
+            <br /><br />
+            <input class="col-lg-3 col-md-3 col-sm-4 col-xs-5 btn btn-primary pull-right" type="submit" value="Upload" />
+            @ViewBag.Message
+        }
+    </div>
+    <br />
+</div>

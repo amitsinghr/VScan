@@ -155,7 +155,9 @@
     <Content Include="Content\fileinput.css" />
     <Content Include="Content\images\bug.svg" />
     <Content Include="Content\images\foursquare-button.svg" />
+    <Content Include="Content\images\safe.svg" />
     <Content Include="Content\images\shield.svg" />
+    <Content Include="Content\images\warning.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -194,9 +196,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Upload\UploadFile.cshtml" />
-    <Content Include="Views\Upload\ChooseScan.cshtml" />
-    <Content Include="Views\Upload\Scan.cshtml" />
+    <Content Include="Views\Home\Upload.cshtml" />
+    <Content Include="Views\Home\ChooseScan.cshtml" />
+    <Content Include="Views\Home\Scan.cshtml" />
     <Content Include="Views\Home\Log.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
@@ -205,6 +207,7 @@
     <Folder Include="Scripts\esm\" />
     <Folder Include="Scripts\umd\" />
     <Folder Include="UploadedFiles\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
