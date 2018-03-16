@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AvScanLibrary.Models.ScanFileLog>
+ 
+
+
+@{
+    ViewBag.Title = "Log";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Log</h2>
+
+ 
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Scanner</th>
+        <th>FileName</th>
+        <th>Type</th>
+        <th>Size (bytes)</th>
+        <th>Start Time</th>
+        <th>Finish Time</th>
+        <th>Status</th>
+        <th>Message</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item.ScanId
+        </td>
+        <td>
+            @item.Scanner
+        </td>
+        <td>
+            @item.FileName
+        </td>
+        <td>
+            @item.FileType
+        </td>
+        <td>
+            @item.Filesize
+        </td>
+        <td>
+            @item.StartTime
+        </td>
+
+        <td>
+            @item.FinishTime
+        </td>
+
+        <td>
+            @item.Status
+        </td>
+
+        <td>
+            @item.Message
+        </td>
+
+        <td>
+
+            @Html.ActionLink("Results", "Details", new { id = item.ScanId })
+
+            @if (item.Scanner.ToLower() == "virus total")
+            {
+                @Html.Display(" | ")
+                @Html.ActionLink("Check Report", "CheckReport", new { scanid = item.ScanId})
+            }
+
+        </td>
+    </tr>
+    }
+
+</table>

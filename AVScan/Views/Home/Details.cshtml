@@ -1,0 +1,100 @@
+﻿@model AvScanLibrary.Models.ScanFileLog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ScanFileLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScanId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScanId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Scanner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scanner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Filesize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filesize) bytes
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinishTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+    </dl>
+
+    <table class="table">
+        <tr>
+            <th>Scan Id</th>
+            <th>Result</th>
+            <th>Message</th>
+        </tr>
+
+
+        @foreach (var item in Model.ScanResults)
+    {
+        <tr>
+            <td>@item.ScanId</td>
+            <td>@item.VirusFound</td>
+            <td>@item.Result</td>
+        </tr>        
+}
+    </table>
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
